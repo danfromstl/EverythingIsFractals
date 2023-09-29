@@ -1,0 +1,60 @@
+2c38 start_logger              160 ---- 2023/09/05 11:57:40.005 -------------------------------------------------
+2c38 start_logger              166 Host process is 'cmd.exe' (pid 11320)
+2c38 start_logger              170 DLL path is 'C:\Users\DWP1122\Downloads\cmder\vendor\clink'
+2c38 start_logger              185 Windows version 10.0.19045 (x64)
+2c38 start_logger              187 Clink version 1.5.1.1e9e51 (x64)
+2c38 hook_setter::hook_setter  159 >>> Started hook transaction.
+2c38 hook_setter::attach_iat   316 Attempting to hook SetEnvironmentVariableW in IAT for module 00007FF65A920000.
+2c38 pe_info::iterate_imports  195 Found import in 'api-ms-win-core-processenvironment-l1-1-0.dll'
+2c38 find_iat                  124 Found import at 00007FF65A953860 (value is 00007FFA2ACD3060).
+2c38 hook_setter::attach_iat   316 Attempting to hook WriteConsoleW in IAT for module 00007FF65A920000.
+2c38 pe_info::iterate_imports  195 Found import in 'api-ms-win-core-console-l1-1-0.dll'
+2c38 find_iat                  124 Found import at 00007FF65A9534F8 (value is 00007FFA2AC776D0).
+2c38 hook_setter::attach_iat   316 Attempting to hook GetEnvironmentVariableW in IAT for module 00007FF65A920000.
+2c38 pe_info::iterate_imports  195 Found import in 'api-ms-win-core-processenvironment-l1-1-0.dll'
+2c38 find_iat                  124 Found import at 00007FF65A953880 (value is 00007FFA2AC95430).
+2c38 hook_setter::commit       207 <<< Hook transaction committed.
+2c38 hook_setter::hook_setter  159 >>> Started hook transaction.
+2c38 hook_setter::detach_iat   359 Attempting to unhook 00007FF974A1B0F0 from GetEnvironmentVariableW in IAT for module 00007FF65A920000.
+2c38 pe_info::iterate_imports  195 Found import in 'api-ms-win-core-processenvironment-l1-1-0.dll'
+2c38 find_iat                  124 Found import at 00007FF65A953880 (value is 00007FF974A1B0F0).
+2c38 hook_setter::commit       207 <<< Hook transaction committed.
+2c38 hook_setter::hook_setter  159 >>> Started hook transaction.
+2c38 hook_setter::attach_iat   316 Attempting to hook ReadConsoleW in IAT for module 00007FF65A920000.
+2c38 pe_info::iterate_imports  195 Found import in 'api-ms-win-core-console-l1-1-0.dll'
+2c38 find_iat                  124 Found import at 00007FF65A9534E0 (value is 00007FFA2AD80B30).
+2c38 hook_setter::commit       207 <<< Hook transaction committed.
+2c38 hook_setter::hook_setter  159 >>> Started hook transaction.
+2c38 hook_setter::attach_iat   316 Attempting to hook SetConsoleTitleW in IAT for module 00007FF65A920000.
+2c38 pe_info::iterate_imports  195 Found import in 'api-ms-win-core-console-l2-2-0.dll'
+2c38 find_iat                  124 Found import at 00007FF65A953558 (value is 00007FFA2ACE69D0).
+2c38 hook_setter::commit       207 <<< Hook transaction committed.
+2c38 win_screen_buffer::begin  297 Using native terminal support (auto mode found 'ConEmuHk64.dll').
+2c38 reset_handle              144 resetting mismatched stdout handle
+2c38 reset_handle              144 resetting mismatched stdout handle
+2c38 host_lua::load_scripts    158 Loaded 2 Lua scripts in 111 ms
+2c38 history_db::initialise   1264 master bank ctag: |CTAG_1693324455_336487578_45740_0
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 ={update.lua}               0 Clink updater: latest release is v1.5.4; install type is zip.
+2c38 ={update.lua}               0 Clink updater: downloading https://github.com/chrisant996/clink/releases/download/v1.5.4/clink.1.5.4.6f56dd.zip to C:\Users\DWP1122\AppData\Local\Temp\clink\updater\v1.5.4.zip.
+2c38 ={update.lua}               0 Clink updater: update in C:\Users\DWP1122\AppData\Local\Temp\clink\updater\v1.5.4.zip is ready to be applied.
+2c38 reset_handle              144 resetting mismatched stdout handle
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 reset_handle              144 resetting mismatched stdout handle
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 reset_handle              144 resetting mismatched stdout handle
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 reset_handle              144 resetting mismatched stdout handle
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 reset_handle              144 resetting mismatched stdout handle
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+2c38 reset_handle              144 resetting mismatched stdout handle
+2c38 history_db::compact      1526 History:  1 active, 0 deleted
+a8f0 reset_handle              144 resetting mismatched stdout handle
+a8f0 history_db::compact      1526 History:  0 active, 1 deleted

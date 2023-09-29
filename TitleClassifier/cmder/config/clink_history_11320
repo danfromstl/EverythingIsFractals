@@ -1,0 +1,12 @@
+cd C:\Offline_Storage\radiantClass\BLS_Data\oesm22all\oesm22all\
+ls
+ls -l
+|ython singularize.py 
+|ython singularize.py 
+|ython singularize.py 
+|ython singularize.py 
+|ython singularize.py 
+|ython singularize.py 
+|ython singularize.py 
+|ython singularize.py 
+python singularize.py 

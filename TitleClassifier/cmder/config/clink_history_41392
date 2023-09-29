@@ -1,0 +1,12 @@
+pip install pandas
+pip install fsspec
+pip install sklearn
+pip install scikit-learn
+pip install matplotlib
+pip install plotly
+pip install tqdm
+pip install transformers
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+pip install torch torchvision
+pip install inflect
