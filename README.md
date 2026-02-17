@@ -78,6 +78,13 @@ Based on the committed notebook contents:
 - No explicit Colab TPU hooks were found in-repo (`google.colab`, `torch_xla`, `xm.xla_device`, TPU runtime setup).
 - It is still possible earlier/alternate local versions targeted Colab TPU, but the tracked versions here currently read as CUDA-oriented experiments.
 
+## VBA Module Split
+
+- Legacy `randomNotes.bas` content has been split into:
+  - `AD_Export.bas` (Active Directory export workflow + progress logging)
+  - `ID_Transforms.bas` (hash/checksum/offset-encode transform functions)
+- `randomNotes.bas` is now kept as a migration pointer only.
+
 ## GitHub Language Visibility Tips
 
 - The `TitleClassifier/cmder/vendor/` tree is vendored tooling; mark it as vendored in `.gitattributes` so it does not dominate repo stats.
