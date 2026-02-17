@@ -1,93 +1,94 @@
 # Everything Is Fractals
 
-This repo has multiple experiments. The section below makes the Title Classifier notebook history explicit and proposes a clean path to script-based Python modules.
+This repo currently contains three distinct experiment groups.
 
-## Title Classifier: Version Map
+## 1) Title Classifier
 
-| Canonical | Notebook | What changed in this version | Suggested sub-version label |
+### Notebook lineage
+
+| Canonical | Notebook | Core approach | Suggested tag |
 |---|---|---|---|
-| Classical-1 | `TitleClassifier_v1_complete.ipynb` | TF-IDF + KMeans + logistic regression baseline, with clustering/visualization steps. | `tc-classic-1.0` |
-| Classical-2 | `TitleClassifier_v2.ipynb` | Same classical stack, plus chunked TF-IDF + progress/time logging. | `tc-classic-1.1` |
-| BERT-Proto | `TitleClassifier_v3_BERT.ipynb` | First `bert-base-uncased` fine-tune path, `num_labels=6`, single dataloader flow. | `tc-bert-0.1` |
-| BERT-DOC-Refactor | `TitleClassifier_v4_BERT_v2.ipynb` | Moves to `All_DOC-and-DMT_data.csv`, label encoding from `SOC18_DOC`, `num_labels=864`, stratified split setup appears. | `tc-bert-1.0-rc1` |
-| BERT-DOC-GPU | `TitleClassifier_v5_BERT_v3_HURRICANE.ipynb` | Explicit train/val/test dataloaders, GPU device flow, validation loss tracking, save to `GPU_v1...pth`. | `tc-bert-1.0` |
-| BERT-MGC-GPU | `TitleClassifier_v6_BERT_v3_HURRICANE2.ipynb` | Same loop style as v5, but dataset shifts to `All_MGC-and-DMT_data.csv`, labels from `SOC18_MGC`, `num_labels=98`. | `tc-bert-1.1-mgc98` |
+| Classical-1 | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v1_complete.ipynb` | TF-IDF + KMeans + logistic baseline | `tc-classic-1.0` |
+| Classical-2 | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v2.ipynb` | Classical iteration (chunking/logging tweaks) | `tc-classic-1.1` |
+| BERT-Proto | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v3_BERT.ipynb` | First BERT transition (`bert-base-uncased`) | `tc-bert-0.1` |
+| BERT-DOC-Refactor | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v4_BERT_v2.ipynb` | DOC/DMT dataset refactor, larger label space | `tc-bert-1.0-rc1` |
+| BERT-DOC-GPU | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v5_BERT_v3_HURRICANE.ipynb` | GPU-focused train/val flow on DOC labels | `tc-bert-1.0` |
+| BERT-MGC-GPU | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v6_BERT_v3_HURRICANE2.ipynb` | GPU-focused variant on MGC labels | `tc-bert-1.1-mgc98` |
 
-## Helpful Sub-Version Notes
+SpaceLaser side branch:
 
-- `v2` likely needs a patch sub-version (`tc-classic-1.1.1`) because chunking currently uses `fit_transform` per chunk, which can create inconsistent feature spaces across chunks.
-- `v4` looks like a transition build (`rc` style): split tensors are defined, but training still appears to iterate a combined dataloader path.
-- `v5` and `v6` are better treated as dataset variants of the same trainer, not fully separate architecture generations.
+- `TitleClassifier/notebooks/spacelaser/SpaceLaser_v1_BERT_v4_HURRICANE.ipynb`
+- `TitleClassifier/notebooks/spacelaser/SpaceLaser_v9_PretrainingOnTheSOC.ipynb`
 
-## Extracted Python Scripts (Now Available)
+### Scripted pipeline (extracted from notebooks)
 
-Core package modules:
+- Package: `TitleClassifier/src/title_classifier/`
+- CLI scripts: `TitleClassifier/scripts/`
+- Dependencies: `TitleClassifier/requirements.txt`
 
-- `TitleClassifier/src/title_classifier/data.py`
-- `TitleClassifier/src/title_classifier/preprocess.py`
-- `TitleClassifier/src/title_classifier/bert_train.py`
-- `TitleClassifier/src/title_classifier/classical_train.py`
-- `TitleClassifier/src/title_classifier/predict.py`
-
-CLI entry scripts:
-
-- `TitleClassifier/scripts/train_bert.py`
-- `TitleClassifier/scripts/train_classical.py`
-- `TitleClassifier/scripts/predict_titles.py`
-- `TitleClassifier/requirements.txt`
-
-Install dependencies first:
+Install dependencies:
 
 ```bash
 pip install -r TitleClassifier/requirements.txt
 ```
 
-Example usage:
+## 2) AD Extraction + ID Transformations (VBA)
 
-```bash
-python TitleClassifier/scripts/train_bert.py \
-  --csv-path "C:/Offline_Storage/radiantClass/All_DOC-and-DMT_data.csv" \
-  --text-column SOC18_DMT \
-  --label-column SOC18_DOC \
-  --output-dir TitleClassifier/models/bert_doc864 \
-  --keep-commas \
-  --epochs 3
-```
+VBA modules now live in `ADExtraction/`:
 
-```bash
-python TitleClassifier/scripts/train_classical.py \
-  --csv-path "C:/Offline_Storage/allTitles.csv" \
-  --text-column organizationalPerson.title \
-  --label-column label \
-  --output-dir TitleClassifier/models/classical_v1
-```
+- `ADExtraction/AD_Export.bas`
+- `ADExtraction/ID_Transforms.bas`
+- Legacy `randomNotes.bas` has been retired.
 
-```bash
-python TitleClassifier/scripts/predict_titles.py \
-  --backend bert \
-  --model-dir TitleClassifier/models/bert_doc864/model \
-  --title "senior software engineer" \
-  --title "director of operations"
-```
+### AD export module
 
-## SpaceLaser Runtime Check
+- Entry point: `ExportADUsersToCSV`
+- Primary output: `allUsers_allSubdomains.csv`
+- Manager/direct report output: `ManagersAndDRs.csv`
+- Uses LDAP (`ADsDSOObject`) and writes pipe-delimited exports.
 
-Based on the committed notebook contents:
+### ID transform versions
 
-- SpaceLaser notebooks now live under `TitleClassifier/notebooks/spacelaser/`.
-- `SpaceLaser` notebooks show explicit CUDA/GPU logic and checks.
-- No explicit Colab TPU hooks were found in-repo (`google.colab`, `torch_xla`, `xm.xla_device`, TPU runtime setup).
-- It is still possible earlier/alternate local versions targeted Colab TPU, but the tracked versions here currently read as CUDA-oriented experiments.
+The transform module includes several generations of ID/checksum/obfuscation functions:
 
-## VBA Module Split
+- Base checksums/hashes:
+  - `SimpleHash`
+  - `SimpleHashFormula`
+  - `SimpleChecksum`
+  - `SimpleChecksumHash`
+  - `SimpleChecksumHash_v2`
+- Base64-based variants:
+  - `Base64ChecksumHash` (24-bit)
+  - `Base64_Hash_8` (48-bit / 8-char base64 body)
+- Offset encode/decode variants:
+  - `OffsetEncode`, `OffsetEncode_v2`, `OffsetEncode_v3`, `OffsetEncode_v5`
+  - `OffsetEncode_v6` / `OffsetDecode_v6`
+  - `OffsetEncode_v7` / `OffsetDecode_v7`
 
-- Legacy `randomNotes.bas` content has been split into:
-  - `AD_Export.bas` (Active Directory export workflow + progress logging)
-  - `ID_Transforms.bas` (hash/checksum/offset-encode transform functions)
-- `randomNotes.bas` is now kept as a migration pointer only.
+These are practical anonymization/checksum transforms, not cryptographic hashes.
 
-## GitHub Language Visibility Tips
+## 3) URL Parser (Darknet Diaries CSV pass)
 
-- `TitleClassifier/cmder/` is now ignored for this repo workflow so terminal-tooling files stay out of project history.
-- Moving core logic into `.py` modules will make GitHub language distribution reflect Python work more clearly than notebook-only workflows.
-- Optional: pair notebooks with scripts using Jupytext so notebook edits and plain Python stay synchronized.
+Location:
+
+- Script: `URLParser/URLparser.py`
+- Data file: `URLParser/DarknetDiaries-CVS_Export.csv`
+
+What it does now:
+
+- Reads the local CSV export (not live RSS scraping at runtime).
+- Scans episode descriptions for URL-like strings (`.com`, `.org`, `.tv`).
+- Counts total discovered URLs and Twitter/X profile hits.
+
+Dataset notes (current file):
+
+- 114 episodes
+- Columns: `Number, Title, URL, Duration, Duration (Minutes), Publish Date, Description`
+- Date range in file: September 1, 2017 to April 5, 2022
+
+---
+
+Repo hygiene notes:
+
+- `TitleClassifier/cmder/` is ignored in `.gitignore`.
+- Notebook checkpoints are ignored via `**/.ipynb_checkpoints/`.
