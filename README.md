@@ -6,12 +6,12 @@ This repo has multiple experiments. The section below makes the Title Classifier
 
 | Canonical | Notebook | What changed in this version | Suggested sub-version label |
 |---|---|---|---|
-| Classical-1 | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v1_complete.ipynb` | TF-IDF + KMeans + logistic regression baseline, with clustering/visualization steps. | `tc-classic-1.0` |
-| Classical-2 | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v2.ipynb` | Same classical stack, plus chunked TF-IDF + progress/time logging. | `tc-classic-1.1` |
-| BERT-Proto | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v3_BERT.ipynb` | First `bert-base-uncased` fine-tune path, `num_labels=6`, single dataloader flow. | `tc-bert-0.1` |
-| BERT-DOC-Refactor | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v4_BERT_v2.ipynb` | Moves to `All_DOC-and-DMT_data.csv`, label encoding from `SOC18_DOC`, `num_labels=864`, stratified split setup appears. | `tc-bert-1.0-rc1` |
-| BERT-DOC-GPU | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v5_BERT_v3_HURRICANE.ipynb` | Explicit train/val/test dataloaders, GPU device flow, validation loss tracking, save to `GPU_v1...pth`. | `tc-bert-1.0` |
-| BERT-MGC-GPU | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v6_BERT_v3_HURRICANE2.ipynb` | Same loop style as v5, but dataset shifts to `All_MGC-and-DMT_data.csv`, labels from `SOC18_MGC`, `num_labels=98`. | `tc-bert-1.1-mgc98` |
+| Classical-1 | `TitleClassifier_v1_complete.ipynb` | TF-IDF + KMeans + logistic regression baseline, with clustering/visualization steps. | `tc-classic-1.0` |
+| Classical-2 | `TitleClassifier_v2.ipynb` | Same classical stack, plus chunked TF-IDF + progress/time logging. | `tc-classic-1.1` |
+| BERT-Proto | `TitleClassifier_v3_BERT.ipynb` | First `bert-base-uncased` fine-tune path, `num_labels=6`, single dataloader flow. | `tc-bert-0.1` |
+| BERT-DOC-Refactor | `TitleClassifier_v4_BERT_v2.ipynb` | Moves to `All_DOC-and-DMT_data.csv`, label encoding from `SOC18_DOC`, `num_labels=864`, stratified split setup appears. | `tc-bert-1.0-rc1` |
+| BERT-DOC-GPU | `TitleClassifier_v5_BERT_v3_HURRICANE.ipynb` | Explicit train/val/test dataloaders, GPU device flow, validation loss tracking, save to `GPU_v1...pth`. | `tc-bert-1.0` |
+| BERT-MGC-GPU | `TitleClassifier_v6_BERT_v3_HURRICANE2.ipynb` | Same loop style as v5, but dataset shifts to `All_MGC-and-DMT_data.csv`, labels from `SOC18_MGC`, `num_labels=98`. | `tc-bert-1.1-mgc98` |
 
 ## Helpful Sub-Version Notes
 
