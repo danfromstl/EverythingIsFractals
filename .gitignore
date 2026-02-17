@@ -2,4 +2,6 @@
 cmder_poisoned.zip
 __pycache__/
 *.pyc
+TitleClassifier/cmder/
+**/.ipynb_checkpoints/
 

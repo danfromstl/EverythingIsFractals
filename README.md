@@ -6,12 +6,12 @@ This repo has multiple experiments. The section below makes the Title Classifier
 
 | Canonical | Notebook | What changed in this version | Suggested sub-version label |
 |---|---|---|---|
-| Classical-1 | `TitleClassifier/cmder/TitleClassifier_v1_complete.ipynb` | TF-IDF + KMeans + logistic regression baseline, with clustering/visualization steps. | `tc-classic-1.0` |
-| Classical-2 | `TitleClassifier/cmder/TitleClassifier_v2.ipynb` | Same classical stack, plus chunked TF-IDF + progress/time logging. | `tc-classic-1.1` |
-| BERT-Proto | `TitleClassifier/cmder/TitleClassifier_v3_BERT.ipynb` | First `bert-base-uncased` fine-tune path, `num_labels=6`, single dataloader flow. | `tc-bert-0.1` |
-| BERT-DOC-Refactor | `TitleClassifier/cmder/TitleClassifier_v4_BERT_v2.ipynb` | Moves to `All_DOC-and-DMT_data.csv`, label encoding from `SOC18_DOC`, `num_labels=864`, stratified split setup appears. | `tc-bert-1.0-rc1` |
-| BERT-DOC-GPU | `TitleClassifier/cmder/TitleClassifier_v5_BERT_v3_HURRICANE.ipynb` | Explicit train/val/test dataloaders, GPU device flow, validation loss tracking, save to `GPU_v1...pth`. | `tc-bert-1.0` |
-| BERT-MGC-GPU | `TitleClassifier/cmder/TitleClassifier_v6_BERT_v3_HURRICANE2.ipynb` | Same loop style as v5, but dataset shifts to `All_MGC-and-DMT_data.csv`, labels from `SOC18_MGC`, `num_labels=98`. | `tc-bert-1.1-mgc98` |
+| Classical-1 | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v1_complete.ipynb` | TF-IDF + KMeans + logistic regression baseline, with clustering/visualization steps. | `tc-classic-1.0` |
+| Classical-2 | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v2.ipynb` | Same classical stack, plus chunked TF-IDF + progress/time logging. | `tc-classic-1.1` |
+| BERT-Proto | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v3_BERT.ipynb` | First `bert-base-uncased` fine-tune path, `num_labels=6`, single dataloader flow. | `tc-bert-0.1` |
+| BERT-DOC-Refactor | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v4_BERT_v2.ipynb` | Moves to `All_DOC-and-DMT_data.csv`, label encoding from `SOC18_DOC`, `num_labels=864`, stratified split setup appears. | `tc-bert-1.0-rc1` |
+| BERT-DOC-GPU | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v5_BERT_v3_HURRICANE.ipynb` | Explicit train/val/test dataloaders, GPU device flow, validation loss tracking, save to `GPU_v1...pth`. | `tc-bert-1.0` |
+| BERT-MGC-GPU | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v6_BERT_v3_HURRICANE2.ipynb` | Same loop style as v5, but dataset shifts to `All_MGC-and-DMT_data.csv`, labels from `SOC18_MGC`, `num_labels=98`. | `tc-bert-1.1-mgc98` |
 
 ## Helpful Sub-Version Notes
 
@@ -74,6 +74,7 @@ python TitleClassifier/scripts/predict_titles.py \
 
 Based on the committed notebook contents:
 
+- SpaceLaser notebooks now live under `TitleClassifier/notebooks/spacelaser/`.
 - `SpaceLaser` notebooks show explicit CUDA/GPU logic and checks.
 - No explicit Colab TPU hooks were found in-repo (`google.colab`, `torch_xla`, `xm.xla_device`, TPU runtime setup).
 - It is still possible earlier/alternate local versions targeted Colab TPU, but the tracked versions here currently read as CUDA-oriented experiments.
@@ -87,6 +88,6 @@ Based on the committed notebook contents:
 
 ## GitHub Language Visibility Tips
 
-- The `TitleClassifier/cmder/vendor/` tree is vendored tooling; mark it as vendored in `.gitattributes` so it does not dominate repo stats.
+- `TitleClassifier/cmder/` is now ignored for this repo workflow so terminal-tooling files stay out of project history.
 - Moving core logic into `.py` modules will make GitHub language distribution reflect Python work more clearly than notebook-only workflows.
 - Optional: pair notebooks with scripts using Jupytext so notebook edits and plain Python stay synchronized.
