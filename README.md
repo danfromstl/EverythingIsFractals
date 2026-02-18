@@ -8,12 +8,12 @@ This repo currently contains three distinct experiment groups.
 
 | Canonical | Notebook | Core approach | Suggested tag |
 |---|---|---|---|
-| Classical-1 | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v1_complete.ipynb` | TF-IDF + KMeans + logistic baseline | `tc-classic-1.0` |
-| Classical-2 | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v2.ipynb` | Classical iteration (chunking/logging tweaks) | `tc-classic-1.1` |
-| BERT-Proto | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v3_BERT.ipynb` | First BERT transition (`bert-base-uncased`) | `tc-bert-0.1` |
-| BERT-DOC-Refactor | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v4_BERT_v2.ipynb` | DOC/DMT dataset refactor, larger label space | `tc-bert-1.0-rc1` |
-| BERT-DOC-GPU | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v5_BERT_v3_HURRICANE.ipynb` | GPU-focused train/val flow on DOC labels | `tc-bert-1.0` |
-| BERT-MGC-GPU | `TitleClassifier/notebooks/title_classifier/TitleClassifier_v6_BERT_v3_HURRICANE2.ipynb` | GPU-focused variant on MGC labels | `tc-bert-1.1-mgc98` |
+| Classical-1 | `TitleClassifier_v1_complete.ipynb` | TF-IDF + KMeans + logistic baseline | `tc-classic-1.0` |
+| Classical-2 | `TitleClassifier_v2.ipynb` | Classical iteration (chunking/logging tweaks) | `tc-classic-1.1` |
+| BERT-Proto | `TitleClassifier_v3_BERT.ipynb` | First BERT transition (`bert-base-uncased`) | `tc-bert-0.1` |
+| BERT-DOC-Refactor | `TitleClassifier_v4_BERT_v2.ipynb` | DOC/DMT dataset refactor, larger label space | `tc-bert-1.0-rc1` |
+| BERT-DOC-GPU | `TitleClassifier_v5_BERT_v3_HURRICANE.ipynb` | GPU-focused train/val flow on DOC labels | `tc-bert-1.0` |
+| BERT-MGC-GPU | `TitleClassifier_v6_BERT_v3_HURRICANE2.ipynb` | GPU-focused variant on MGC labels | `tc-bert-1.1-mgc98` |
 
 SpaceLaser side branch:
 

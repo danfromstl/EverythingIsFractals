@@ -1,0 +1,38 @@
+{
+  "lab": {
+    "vmRoot": "C:\\VMs\\Labs\\LabGrownAD-LAB"
+  },
+  "vmware": {
+    "cloneType": "linked",
+    "baseDcVmx": "C:\\VMs\\BASE-DC\\BASE-DC.vmx",
+    "baseClientVmx": "C:\\VMs\\BASE-CLIENT\\BASE-CLIENT.vmx",
+    "encryptionPassword": ""
+  },
+  "domain": {
+    "dnsName": "lab.root.corp",
+    "netbiosName": "LAB",
+    "dcHostname": "LAB-DC1",
+    "clientHostname": "LAB-WS1"
+  },
+  "network": {
+    "hostOnlyCidr": "172.16.50.0/24",
+    "dcIp": "172.16.50.10",
+    "clientIp": "172.16.50.20",
+    "prefixLength": 24,
+    "dnsServer": "172.16.50.10"
+  },
+  "secrets": {
+    "guestAdminPw": "ChangeMe!",
+    "safeModeAdminPw": "ChangeMe!"
+  },
+  "seed": {
+    "companyName": "LabGrownAD",
+    "userCount": 200,
+    "hideFromAddressListsPercent": 10,
+    "ouRoot": "OU=LabUsers"
+  },
+  "exchange": {
+    "doSchemaPrep": true,
+    "isoDriveLetter": "D"
+  }
+}

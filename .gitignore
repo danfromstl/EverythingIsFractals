@@ -5,3 +5,25 @@ __pycache__/
 TitleClassifier/cmder/
 **/.ipynb_checkpoints/
 
+# VM artifacts (never commit)
+**/*.vmdk
+**/*.nvram
+**/*.vmem
+**/*.vmsd
+**/*.vmsn
+**/*.vmxf
+**/*.vmx
+**/*.vmx~
+**/*.log
+**/*.lck/
+
+# Local lab output directory (your generated VMs)
+LabGrownAD/vms/
+LabGrownAD/artifacts/
+
+# Local config/secrets (developer-specific)
+config.local.json
+*.local.json
+
+# ISOs (if you keep them in-repo locally)
+isos/
